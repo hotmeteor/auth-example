@@ -1,11 +1,14 @@
 <?php
 
+// Landing page
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Auth-related routes (Laravel defaults)
 Route::auth();
 
+// Protected routes (must be logged in)
 Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/home', 'HomeController@index');
